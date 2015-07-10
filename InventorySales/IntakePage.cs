@@ -117,6 +117,7 @@ namespace InventorySales
 			var scanned = new Dictionary<string, object>
 			{
 				{"sku", sku.Text},
+				{"type", "intake"},
 				{"employee", employee.Text},
 				{"location", location.Text},
 				{"quantity", quantity.Text}
