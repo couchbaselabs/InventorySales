@@ -51,13 +51,13 @@ namespace InventorySales
 				HorizontalOptions= LayoutOptions.FillAndExpand,
 				TextColor = Color.Blue
 			};
-			nameLabel.SetBinding(Label.TextProperty, "Text");
+			nameLabel.SetBinding(Label.TextProperty, "Key");
 
 			var totalLabel = new Label
 			{
 				HorizontalOptions = LayoutOptions.FillAndExpand,
 			};
-			totalLabel.SetBinding(Label.TextProperty, "Detail");
+			totalLabel.SetBinding(Label.TextProperty, "Value");
 
 			var nameLayout = new StackLayout()
 			{
