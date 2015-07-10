@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{D4C8F8B8-1AA5-426E-9256-201EAA5DEBA9}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>InventorySales</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)InventorySales.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IntakePage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SalesPage.cs" />
+  </ItemGroup>
+</Project>
