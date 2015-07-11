@@ -1,5 +1,5 @@
 ﻿using System;
-
+using Couchbase.Lite;
 using Xamarin.Forms;
 
 namespace InventorySales
@@ -23,6 +23,20 @@ namespace InventorySales
 		protected override void OnStart ()
 		{
 			// Handle when your app starts
+			setupSync();
+		}
+
+		void setupSync() {
+			var newRemoteUrl = new Uri ("http://localhost:4984/retail");
+			Database db = Manager.SharedInstance.GetDatabase ("inventory");
+			var push = db.CreatePushReplication (newRemoteUrl);
+			push.Continuous = true;
+			push.Start();
+			var pull = db.CreatePullReplication (newRemoteUrl);
+			pull.Continuous = true;
+			string[] channels = { "sale", "intake" };
+			pull.Channels = channels;
+			pull.Start();
 		}
 
 		protected override void OnSleep ()

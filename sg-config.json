@@ -1,0 +1,19 @@
+{
+   "log":["REST", "Changes+"],
+   "databases":{
+      "retail":{
+        "server": "http://localhost:8091/",
+         "sync":`
+function(doc) {
+   if (doc.type) {
+      channel(doc.type)
+   } else {
+      channel("other")
+   }
+}
+         `,
+         "users": { "GUEST": {"disabled": false, "all_channels": ["*"], "admin_channels": ["*"]} }
+      }
+   }
+}
+
