@@ -107,7 +107,7 @@ namespace InventorySales
 				Placeholder = "SKU"
 			};
 			scan = new Button {
-				Text = "Scan"	
+				Text = "Scan!"	
 			};
 			scan.Clicked += OnButtonClicked;
 		}
@@ -120,6 +120,7 @@ namespace InventorySales
 				{"type", "intake"},
 				{"employee", employee.Text},
 				{"location", location.Text},
+				{"created_at", DateTime.Now},
 				{"quantity", quantity.Text}
 			};
 			Document doc = db.CreateDocument ();

@@ -135,6 +135,7 @@ namespace InventorySales
 				{"employee", employee.Text},
 				{"location", location.Text},
 				{"price", price.Text},
+				{"created_at", DateTime.Now},
 				{"quantity", quantity.Text}
 			};
 			Document doc = db.CreateDocument ();
