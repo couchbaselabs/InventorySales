@@ -1,6 +1,20 @@
 {
    "log":["REST", "Changes+"],
    "databases":{
+      "regional" : {
+         "server": "http://localhost:8091/",
+         "sync":`
+         function(doc) {
+            if (doc.type !== "reduction") {
+               throw ({forbidden : "only reductions"})
+            }
+            if (doc.type) {
+               channel(doc.type)
+            } else {
+               channel("other")
+            }
+         }`
+      },
       "retail":{
         "server": "http://localhost:8091/",
          "sync":`
