@@ -1,0 +1,34 @@
+{
+   "log":["REST", "Changes+"],
+   "databases":{
+      "regional" : {
+         "serverX": "http://localhost:8091/",
+         "server": "forestdb:data",
+         "sync":`
+         function(doc) {
+            if (doc.type !== "reduction") {
+               throw ({forbidden : "only reductions"})
+            }
+            if (doc.type) {
+               channel(doc.type)
+            } else {
+               channel("other")
+            }
+         }`
+      },
+      "retail":{
+         "server": "forestdb:data",
+         "sync":`
+function(doc) {
+   if (doc.type) {
+      channel(doc.type)
+   } else {
+      channel("other")
+   }
+}
+         `,
+         "users": { "GUEST": {"disabled": false, "all_channels": ["*"], "admin_channels": ["*"]} }
+      }
+   }
+}
+
