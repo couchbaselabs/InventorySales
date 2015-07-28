@@ -1,8 +1,10 @@
 {
+   "XadminInterface": "127.0.0.1:5984",
+   "xadminUI" : "src/github.com/couchbaselabs/sync_gateway_admin_ui/assets/index.html",
    "log":["REST", "Changes+"],
    "databases":{
       "regional" : {
-         "server": "http://localhost:8091/",
+         "server": "walrus:wally",
          "sync":`
          function(doc) {
             if (doc.type !== "reduction") {
@@ -16,7 +18,7 @@
          }`
       },
       "retail":{
-        "server": "http://localhost:8091/",
+         "server": "walrus:wally",
          "sync":`
 function(doc) {
    if (doc.type) {
